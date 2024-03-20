@@ -1,6 +1,7 @@
 import cv2
 import os
 import numpy as np
+import tkinter as tk
 
 def resize_with_black(image, new_width, new_height):
     original_height, original_width = image.shape[:2]
@@ -15,17 +16,19 @@ def resize_with_black(image, new_width, new_height):
 
     return black_image
 
+def get_screen_size():
+    root = tk.Tk()
+    root.withdraw()
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    root.destroy()
+    return screen_width, screen_height
+
 def create_video_from_images(image_folder, output_video, fps, duration_per_image, target_width=None, target_height=None):
     images = [img for img in os.listdir(image_folder) if img.endswith(".png")]
-    
+    target_width, target_height = get_screen_size()
     frame = cv2.imread(os.path.join(image_folder, images[0]))
     height, width, layers = frame.shape
-
-    if target_width is None:
-        target_width = width
-    if target_height is None:
-        target_height = height
-
     frames_per_image = int(fps * duration_per_image)
     video = cv2.VideoWriter(output_video, cv2.VideoWriter_fourcc(*'MJPG'), fps, (target_width, target_height))
 
