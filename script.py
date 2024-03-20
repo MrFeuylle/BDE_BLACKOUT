@@ -16,8 +16,8 @@ def create_video_from_images(image_folder, output_video, fps=30, delay_between_f
     video.release()
 
 # Usage example:
-image_folder = "./BDE_BLACKOUT/image"
-output_video = "./BDE_BLACKOUT/bde.mp4"
+image_folder = "./image"
+output_video = "./bde.mp4"
 fps = 1  # Frames per second
 delay_between_frames = 15000  # Delay between frames in milliseconds
 
