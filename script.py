@@ -43,6 +43,6 @@ def create_video_from_images(image_folder, output_video, fps, duration_per_image
 image_folder = os.path.join(os.path.dirname(__file__), "image")
 output_video = os.path.join(os.path.dirname(__file__),"bde.mkv")
 fps = 3
-delay_between_frames = 5
+delay_between_frames = 15
 
 create_video_from_images(image_folder, output_video, fps, delay_between_frames)
