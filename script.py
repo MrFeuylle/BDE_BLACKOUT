@@ -38,7 +38,7 @@ def create_video_from_images(image_folder, output_video, fps, duration_per_image
     cv2.destroyAllWindows()
     video.release()
 image_folder = os.path.join(os.path.dirname(__file__), "image")
-output_video = "./bde.mkv"
+output_video = "bde.mkv"
 fps = 1
 delay_between_frames = 5
 
