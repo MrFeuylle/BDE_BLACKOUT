@@ -21,7 +21,6 @@ def create_video_from_images(image_folder, output_video, fps=30, duration_per_im
         frame = cv2.imread(os.path.join(image_folder, image))
         frame = resize_image(frame, target_width, target_height)
         video.write(frame)
-        frames_to_write.extend([frame] * int(fps * duration_per_image))
 
     cv2.destroyAllWindows()
     video.release()
